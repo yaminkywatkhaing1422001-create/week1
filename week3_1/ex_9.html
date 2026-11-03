@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My CSS Portfolio</title>
+
+  <style>
+    /* 1. Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 2. Base Styles */
+    body {
+      font-family: sans-serif;
+      background-color: #f0fdf4;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      margin-top: 10px;
+    }
+
+    /* 3. Navigation */
+    .nav {
+      background-color: #1e293b;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: white;
+    }
+
+    .nav-links a:hover {
+      color: #10B981;
+    }
+
+    /* 4. Hero Section */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #dcfce7;
+    }
+
+    .hero h1 {
+      color: #15803d;
+    }
+
+    .hero p {
+      color: #64748b;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #15803d;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: #166534;
+    }
+
+    /* 5. Skills Section */
+    .skills-section {
+      padding: 60px 30px;
+      text-align: center;
+    }
+
+    .skills-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .skill-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #bbf7d0;
+      flex: 1;
+      max-width: 300px;
+    }
+
+    .skill-card h3 {
+      color: #15803d;
+    }
+
+    /* 6. Footer */
+    .footer {
+      background-color: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <span class="nav-logo">MyPortfolio</span>
+
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Hello, I'm YA MIN KYAWT KHAING!</h1>
+
+    <p>
+      Computer Engineering Student
+      <br>
+      Gachon University
+    </p>
+
+    <a href="#skills" class="btn">See My Skills</a>
+  </section>
+
+  <section class="skills-section" id="skills">
+    <h2>What I Know</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <h3>HTML5</h3>
+        <p>Structure and semantics</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>CSS3</h3>
+        <p>Styling and layout</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Flexbox</h3>
+        <p>Modern layout model</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <p>
+      YA MIN KYAWT KHAING
+      <br>
+      K0126002 Web Programming
+      &copy; 2026 Gachon University
+    </p>
+  </footer>
+
+</body>
+</html>
