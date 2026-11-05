@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive To-Do List</title>
+  <style>
+    body {
+      font-family: system-ui;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+    }
+    h2 { color: #1a56db; }
+    .add-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 8px 12px;
+      border: 2px solid #c8d4f0;
+      border-radius: 8px;
+    }
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .add-btn {
+      background: #1a56db;
+      color: white;
+    }
+    #todo-list {
+      list-style: none;
+      padding: 0;
+    }
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      margin-bottom: 6px;
+      background: #f0f4ff;
+      border-radius: 8px;
+    }
+    .del-btn {
+      background: #dc2626;
+      color: white;
+      padding: 4px 10px;
+    }
+    #empty-msg {
+      color: #9ca3af;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>My To-Do List</h2>
+
+  <div class="add-row">
+    <input id="todo-input" type="text"
+           placeholder="Add a task...">
+    <button id="add-btn" class="add-btn">+ Add</button>
+  </div>
+
+  <ul id="todo-list"></ul>
+  <p id="empty-msg">No tasks yet! Add one above.</p>
+
+  <script>
+    const input = document.querySelector('#todo-input');
+    const addBtn = document.querySelector('#add-btn');
+    const list = document.querySelector('#todo-list');
+    const emptyMsg = document.querySelector('#empty-msg');
+
+    function updateEmpty() {
+      emptyMsg.style.display =
+        list.children.length === 0 ? 'block' : 'none';
+    }
+
+    function addTask() {
+      const task = input.value.trim();
+
+      if (task === '') return;
+
+      const li = document.createElement('li');
+      li.classList.add('todo-item');
+
+      const span = document.createElement('span');
+      span.textContent = task;
+
+      const delBtn = document.createElement('button');
+      delBtn.textContent = '✕';
+      delBtn.classList.add('del-btn');
+
+      li.appendChild(span);
+      li.appendChild(delBtn);
+      list.appendChild(li);
+
+      input.value = '';
+      updateEmpty();
+    }
+
+    addBtn.addEventListener('click', addTask);
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        addTask();
+      }
+    });
+
+    list.addEventListener('click', (e) => {
+      if (e.target.matches('.del-btn')) {
+        e.target.closest('li').remove();
+        updateEmpty();
+      }
+    });
+
+    updateEmpty();
+  </script>
+
+</body>
+</html>
