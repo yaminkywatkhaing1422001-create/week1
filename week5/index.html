@@ -263,5 +263,43 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 
 </footer>
 
+
+<style>
+/* Fix card layout */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 18px;
+  min-height: 110px;
+}
+
+.card h3,
+.card p,
+.card span {
+  display: block;
+  width: 100%;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Improve text contrast */
+.card p,
+.card span {
+  color: #374151;
+}
+
+header p {
+  color: #ffffff;
+  opacity: 1;
+}
+
+#team-project,
+#team-project p {
+  color: #1f2937;
+}
+</style>
+
 </body>
 </html>
