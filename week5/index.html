@@ -131,7 +131,58 @@
     </div>
   </section>
 
-  <footer>
+  
+  <section id="contact" style="background:white; padding:25px; border-radius:12px; margin:25px 0;">
+  <h2>Contact Me</h2>
+  <p>Feel free to send me a message!</p>
+
+  <form id="contactForm" novalidate>
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" required
+      style="width:100%; padding:10px; margin:8px 0 15px;"><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" required
+      style="width:100%; padding:10px; margin:8px 0 15px;"><br>
+
+    <label for="subject">Subject:</label><br>
+    <input type="text" id="subject" required
+      style="width:100%; padding:10px; margin:8px 0 15px;"><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" rows="5" required
+      style="width:100%; padding:10px; margin:8px 0 15px;"></textarea><br>
+
+    <button type="submit"
+      style="padding:12px 25px; background:#7c3aed; color:white; border:0; border-radius:8px;">
+      Send Message
+    </button>
+    <p id="formStatus" aria-live="polite"></p>
+  </form>
+</section>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const fields = this.querySelectorAll("input, textarea");
+  const status = document.getElementById("formStatus");
+
+  for (const field of fields) {
+    if (!field.checkValidity()) {
+      status.textContent = "Please complete all fields correctly.";
+      status.style.color = "red";
+      field.focus();
+      return;
+    }
+  }
+
+  status.textContent = "Form validated successfully! This is a demo form.";
+  status.style.color = "green";
+  this.reset();
+});
+</script>
+<footer>
     <p>Built with HTML, CSS &amp; JavaScript · Hosted on GitHub Pages</p>
   </footer>
 
